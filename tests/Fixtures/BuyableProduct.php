@@ -11,24 +11,15 @@ class BuyableProduct implements Buyable
      */
     private $id;
 
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var float
-     */
-    private $price;
+    private string $name;
+    private float $price;
 
     /**
      * BuyableProduct constructor.
      *
      * @param int|string $id
-     * @param string     $name
-     * @param float      $price
      */
-    public function __construct($id = 1, $name = 'Item name', $price = 10.00)
+    public function __construct($id = 1, string $name = 'Item name', float $price = 10.00)
     {
         $this->id = $id;
         $this->name = $name;
@@ -47,20 +38,16 @@ class BuyableProduct implements Buyable
 
     /**
      * Get the description or title of the Buyable item.
-     *
-     * @return string
      */
-    public function getBuyableDescription($options = null)
+    public function getBuyableDescription($options = null): string
     {
         return $this->name;
     }
 
     /**
      * Get the price of the Buyable item.
-     *
-     * @return float
      */
-    public function getBuyablePrice($options = null)
+    public function getBuyablePrice($options = null): float
     {
         return $this->price;
     }

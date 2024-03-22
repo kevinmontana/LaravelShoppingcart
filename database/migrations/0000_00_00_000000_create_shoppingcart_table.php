@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShoppingcartTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create(config('cart.database.table'), function (Blueprint $table) {
             $table->string('identifier');
@@ -20,11 +20,12 @@ class CreateShoppingcartTable extends Migration
             $table->primary(['identifier', 'instance']);
         });
     }
+    
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop(config('cart.database.table'));
     }
-}
+};
